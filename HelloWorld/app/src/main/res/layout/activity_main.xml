@@ -1,152 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.jarvis.utkarsh.helloworld.MainActivity"
-    android:clickable="false">
+    android:fitsSystemWindows="true"
+    tools:context="com.jarvis.utkarsh.helloworld.MainActivity">
 
-    <TextView
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:fitsSystemWindows="true"
+        android:layout_height="@dimen/app_bar_height"
+        android:layout_width="match_parent"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:fitsSystemWindows="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="?attr/colorPrimary">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_width="match_parent"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_main" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="none"
-        android:ems="10"
-        android:id="@+id/result"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="0"/>
+        android:layout_margin="@dimen/fab_margin"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="bottom|end"
+        android:src="@android:drawable/ic_dialog_email" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="7"
-        android:id="@+id/num7"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="138dp"
-        android:onClick="append"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="8"
-        android:id="@+id/num8"
-        android:layout_alignTop="@+id/num7"
-        android:layout_alignStart="@+id/num5"
-        android:onClick="append"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="9"
-        android:id="@+id/num9"
-        android:layout_below="@+id/addButton"
-        android:layout_alignParentEnd="true"
-        android:onClick="append"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="4"
-        android:id="@+id/num4"
-        android:layout_below="@+id/num8"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="29dp"
-        android:onClick="append"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="5"
-        android:id="@+id/num5"
-        android:layout_alignTop="@+id/num4"
-        android:layout_centerHorizontal="true"
-        android:onClick="append"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="6"
-        android:id="@+id/num6"
-        android:layout_alignTop="@+id/num5"
-        android:layout_alignParentEnd="true"
-        android:onClick="append"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1"
-        android:id="@+id/num1"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:onClick="append"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2"
-        android:id="@+id/num2"
-        android:layout_alignBottom="@+id/num1"
-        android:layout_alignStart="@+id/num5"
-        android:onClick="append"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3"
-        android:id="@+id/num3"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/num6"
-        android:onClick="append"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        android:id="@+id/addButton"
-        android:layout_marginBottom="59dp"
-        android:layout_above="@+id/num7"
-        android:layout_alignParentStart="true"
-        android:onClick="addNumbers"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-"
-        android:id="@+id/MinusButton"
-        android:layout_alignTop="@+id/addButton"
-        android:layout_alignParentEnd="true"
-        android:onClick="minusNumbers"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:id="@+id/num0"
-        android:layout_below="@+id/MinusButton"
-        android:layout_alignStart="@+id/num8"
-        android:onClick="append"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Clear"
-        android:id="@+id/ClearButton"
-        android:onClick="clearScreen"
-        android:layout_below="@+id/result"
-        android:layout_alignStart="@+id/num0"
-        android:layout_marginTop="38dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="="
-        android:id="@+id/equalButton"
-        android:onClick="calculateResult"
-        android:layout_above="@+id/num0"
-        android:layout_alignStart="@+id/num0" />
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
